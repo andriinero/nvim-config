@@ -1,0 +1,91 @@
+{
+  "cleaner for loop": {
+    "prefix": "forc",
+    "body": [
+      "for(let ${1:i} = 0; ${1:i} < length; ${1:i}++) {\n\n}"
+    ],
+    "description": "Cleaner for loop"
+  },
+  "console log": {
+    "prefix": "clog",
+    "body": [
+      "// FIXME: remove comment",
+      "console.log(${1});"
+    ],
+    "description": "Cleaner for loop"
+  },
+  "styled div": {
+    "prefix": "sy",
+    "body": [
+      "export const $1 = styled.div`",
+      "\t",
+      "`;"
+    ],
+    "description": "Creates styled component"
+  },
+  "twin div": {
+    "prefix": "ty",
+    "body": [
+      "export const $1 = tw.div`",
+      "\t",
+      "`;"
+    ],
+    "description": "Creates twin component"
+  },
+  "arrow funtion": {
+    "prefix": "ar",
+    "body": [
+      "const $1 = () => {",
+      "\t",
+      "};"
+    ],
+    "description": "Creates an arrow function"
+  },
+  "redux selector": {
+    "prefix": "csel",
+    "body": [
+      "export const select$1 = (state: RootState) => state.;"
+    ],
+    "description": "Creates redux selector"
+  },
+  "component app selector": {
+    "prefix": "sel",
+    "body": [
+      "const  = useAppSelector(select$1);"
+    ],
+    "description": "Selects app selector"
+  },
+  "hook template": {
+    "prefix": "comp",
+    "body": [
+      "const $1 = () => {",
+      "\treturn null;",
+      "};",
+      "",
+      "export default $1;"
+    ],
+    "description": "Creates hook template"
+  },
+  "styled component props": {
+    "prefix": "sprop",
+    "body": [
+      "${({ $1 }) => $1}"
+    ],
+    "description": "Selects styled component property"
+  },
+  "create slice": {
+    "prefix": "slice",
+    "body": [
+      "import { createSlice } from '@reduxjs/toolkit';",
+      "",
+      "type $1State = {};",
+      "",
+      "const initialState: $1State = {};",
+      "",
+      "const $1Slice = createSlice({ name: '$1', initialState, reducers: {} });",
+      "",
+      "export default $1Slice.reducer;"
+    ],
+    "description": "Creates RTK slice template"
+  }
+}

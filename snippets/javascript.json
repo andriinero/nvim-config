@@ -1,0 +1,26 @@
+{
+  "cleaner for loop": {
+    "prefix": "forc",
+    "body": [
+      "for(let ${1:i} = 0; ${1:i} < length; ${1:i}++) {\n\n}"
+    ],
+    "description": "Cleaner for loop"
+  },
+  "console log": {
+    "prefix": "clog",
+    "body": [
+      "// FIXME: remove comment",
+      "console.log(${1});"
+    ],
+    "description": "Cleaner for loop"
+  },
+  "styled div": {
+    "prefix": "sy",
+    "body": [
+      "export const $1 = styled.div`",
+      "\t",
+      "`;"
+    ],
+    "description": "Creates styled component"
+  }
+}

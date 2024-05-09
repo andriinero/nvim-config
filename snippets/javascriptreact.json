@@ -1,0 +1,15 @@
+{
+  "component template": {
+    "prefix": "comp",
+    "body": [
+      "const $1 = () => {",
+      "\treturn (",
+      "\t\t\t",
+      "\t);",
+      "}",
+      "",
+      "export default $1;"
+    ],
+    "description": "Creates component template"
+  }
+}

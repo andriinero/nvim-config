@@ -1,0 +1,70 @@
+{
+  "component template": {
+    "prefix": "comp",
+    "body": [
+      "import { ReactNode } from 'react';",
+      "",
+      "import cn from '@/utils/cn';",
+      "",
+      "type $1Props = { className?: string; children?: ReactNode };",
+      "",
+      "const $1 = ({ className, children }: $1Props) => {",
+      "\treturn <div className={cn('', className)}>{children}</div>;",
+      "};",
+      "",
+      "export default $1;"
+    ],
+    "description": "Creates component template"
+  },
+  "short component template": {
+    "prefix": "somp",
+    "body": [
+      "const $1 = () => {",
+      "\treturn <div className=\"\"></div>;",
+      "};",
+      "",
+      "export default $1;"
+    ],
+    "description": "Creates a short component template"
+  },
+  "console log": {
+    "prefix": "clog",
+    "body": [
+      "// FIXME: remove comment",
+      "console.log(${1});"
+    ],
+    "description": "Cleaner for loop"
+  },
+  "component app selector": {
+    "prefix": "csel",
+    "body": [
+      "const ${1/(.)(.*)/${1:/downcase}$2/} = useAppSelector(select${1});"
+    ],
+    "description": "Selects app selector"
+  },
+  "it body": {
+    "prefix": "sit",
+    "body": [
+      "it('$1', () => {});"
+    ],
+    "description": "It block"
+  },
+  "arrow funtion": {
+    "prefix": "ar",
+    "body": [
+      "const $1 = () => {",
+      "\t",
+      "};"
+    ],
+    "description": "Creates an arrow function"
+  },
+  "useEffect body": {
+    "prefix": "eff",
+    "body": [
+      "useEffect(() => {",
+      "\t$1",
+      "}, []);"
+    ],
+    "description": "Creates useEffect hook"
+  }
+}

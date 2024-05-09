@@ -1,0 +1,41 @@
+{
+  "Add Border": {
+    "prefix": "brd",
+    "body": [
+      "border: ${1:1}px solid red;"
+    ],
+    "description": "Log output to console"
+  },
+  "Center with Flexbox": {
+    "prefix": "fcent",
+    "body": [
+      "display: flex;",
+      "justify-content: center;",
+      "align-items: center;"
+    ],
+    "description": "Center children elements using Flexbox"
+  },
+  "Width by Height": {
+    "prefix": "whx",
+    "body": [
+      "width: ${1:0}px;",
+      "height: ${1:0}px;"
+    ],
+    "description": "Create width and height props"
+  },
+  "Margin and Padding": {
+    "prefix": "mpx",
+    "body": [
+      "margin: ${1:0}px;",
+      "padding: ${1:0}px;"
+    ],
+    "description": "Create margin and padding props"
+  },
+  "styled component props": {
+    "prefix": "sprop",
+    "body": [
+      "${({ $1 }) => $1}"
+    ],
+    "description": "Selects props in css body"
+  }
+}
