@@ -28,6 +28,7 @@ return {
             icon = "",
           },
         },
+        lualine_z = { { "encoding" } },
       },
     },
   },
@@ -62,12 +63,12 @@ return {
   {
     "akinsho/bufferline.nvim",
     opts = {
-      options = {
-        -- indicator = {
-        --   style = "none",
-        -- },
-        -- separator_style = "slant",
-      },
+      -- options = {
+      --   indicator = {
+      --     style = "none",
+      --   },
+      -- separator_style = "slant",
+      -- },
     },
   },
   {
@@ -116,8 +117,8 @@ return {
         -- { action = LazyVim.telescope("files"),                                    desc = " Find File",       icon = " ", key = "f" },
         { action = "ene | startinsert",                                        desc = " New File",        icon = " ", key = "n" },
         { action = "Telescope oldfiles",                                       desc = " Recent Files",    icon = " ", key = "r" },
-        { action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = " ", key = "s" },
         -- { action = "Telescope live_grep",                                      desc = " Find Text",       icon = " ", key = "g" },
+        { action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = " ", key = "s" },
         { action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x" },
         { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
         { action = [[lua LazyVim.telescope.config_files()()]], desc = " Config",          icon = " ", key = "c" },

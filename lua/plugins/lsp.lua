@@ -54,7 +54,6 @@ return {
         opts.formatting.format = function(entry, cmp_item)
           cmp_item.kind = " " .. (cmp_kinds[cmp_item.kind] or "") .. cmp_item.kind
           -- cmp_item.kind = (cmp_kinds[cmp_item.kind] or "") .. string.sub(cmp_item.kind, 0, 2)
-          -- cmp_item.kind = (cmp_kinds[cmp_item.kind] or "")
           format_kinds(entry, cmp_item)
           return require("tailwindcss-colorizer-cmp").formatter(entry, cmp_item)
         end
