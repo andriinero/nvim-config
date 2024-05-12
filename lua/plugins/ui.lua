@@ -21,8 +21,13 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     opts = {
-      options = {
-        theme = "catppuccin-mocha",
+      sections = {
+        lualine_a = {
+          {
+            "mode",
+            icon = "",
+          },
+        },
       },
     },
   },
@@ -58,10 +63,10 @@ return {
     "akinsho/bufferline.nvim",
     opts = {
       options = {
-        indicator = {
-          style = "none",
-        },
-        separator_style = "slant",
+        -- indicator = {
+        --   style = "none",
+        -- },
+        -- separator_style = "slant",
       },
     },
   },

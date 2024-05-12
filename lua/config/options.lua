@@ -7,4 +7,4 @@ vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 
 -- CURSOR
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = "" -- // permanent block cursor

@@ -1,3 +1,31 @@
+local cmp_kinds = {
+  Text = "  ",
+  Method = "  ",
+  Function = "  ",
+  Constructor = "  ",
+  Field = "  ",
+  Variable = "  ",
+  Class = "  ",
+  Interface = "  ",
+  Module = "  ",
+  Property = "  ",
+  Unit = "  ",
+  Value = "  ",
+  Enum = "  ",
+  Keyword = "  ",
+  Snippet = "  ",
+  Color = "  ",
+  File = "  ",
+  Reference = "  ",
+  Folder = "  ",
+  EnumMember = "  ",
+  Constant = "  ",
+  Struct = "  ",
+  Event = "  ",
+  Operator = "  ",
+  TypeParameter = "  ",
+}
+
 return {
   {
     {
@@ -23,9 +51,12 @@ return {
       },
       opts = function(_, opts)
         local format_kinds = opts.formatting.format
-        opts.formatting.format = function(entry, item)
-          format_kinds(entry, item)
-          return require("tailwindcss-colorizer-cmp").formatter(entry, item)
+        opts.formatting.format = function(entry, cmp_item)
+          cmp_item.kind = " " .. (cmp_kinds[cmp_item.kind] or "") .. cmp_item.kind
+          -- cmp_item.kind = (cmp_kinds[cmp_item.kind] or "") .. string.sub(cmp_item.kind, 0, 2)
+          -- cmp_item.kind = (cmp_kinds[cmp_item.kind] or "")
+          format_kinds(entry, cmp_item)
+          return require("tailwindcss-colorizer-cmp").formatter(entry, cmp_item)
         end
       end,
     },
