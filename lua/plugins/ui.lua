@@ -1,11 +1,5 @@
 return {
   {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-    },
-  },
-  {
     "folke/noice.nvim",
     opts = function(_, opts)
       table.insert(opts.routes, {
@@ -33,6 +27,18 @@ return {
     },
   },
   {
+    "echasnovski/mini.animate",
+    opts = function()
+      local animate = require("mini.animate")
+      return {
+        scroll = {
+          enable = false,
+          timing = animate.gen_timing.linear({ duration = 75, unit = "total" }),
+        },
+      }
+    end,
+  },
+  {
     "b0o/incline.nvim",
     event = "BufReadPre",
     priority = 1200,
@@ -51,14 +57,6 @@ return {
         end,
       })
     end,
-  },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      window = {
-        position = "right",
-      },
-    },
   },
   {
     "akinsho/bufferline.nvim",

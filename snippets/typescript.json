@@ -32,8 +32,8 @@
     ],
     "description": "Creates twin component"
   },
-  "arrow funtion": {
-    "prefix": "ar",
+  "arrow function": {
+    "prefix": "aro",
     "body": [
       "const $1 = () => {",
       "\t",

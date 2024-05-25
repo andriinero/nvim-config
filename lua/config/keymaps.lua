@@ -9,3 +9,7 @@ vim.keymap.del("i", "<A-j>")
 vim.keymap.del("i", "<A-k>")
 vim.keymap.del("v", "<A-j>")
 vim.keymap.del("v", "<A-k>")
+
+-- Ctrl Up and Down
+vim.keymap.set("n", "<esc>d", "<C-d>", { remap = true })
+vim.keymap.set("n", "<esc>u", "<C-u>", { remap = true })
