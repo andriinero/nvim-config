@@ -2,14 +2,14 @@
   "component template": {
     "prefix": "comp",
     "body": [
-      "import type { ReactNode } from 'react';",
+      "import { cn } from '@/utils/utils';",
       "",
-      "import cn from '@/utils/cn';",
+      "import type { ComponentWithoutRef } from 'react';",
       "",
-      "type $1Props = { className?: string; children?: ReactNode };",
+      "type $1Props = ComponentWithoutRef<''>;",
       "",
-      "const $1 = ({ className, children }: $1Props) => {",
-      "\treturn <div className={cn('', className)}>{children}</div>;",
+      "const $1 = ({ className, children, ...props }: $1Props) => {",
+      "\treturn <div className={cn('', className)} {...props}>{children}</div>;",
       "};",
       "",
       "export default $1;"

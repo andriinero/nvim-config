@@ -8,12 +8,12 @@ return {
     "mfussenegger/nvim-lint",
     opts = {
       linters_by_ft = {
-        -- ["*"] = { "eslint_d" },
-        javascript = { "eslint_d" },
-        typescript = { "eslint_d" },
-        typescriptreact = { "eslint_d" },
-        javascriptreact = { "eslint_d" },
-        markdown = { "eslint_d" },
+        -- ["*"] = { "eslint" },
+        javascript = { "eslint" },
+        typescript = { "eslint" },
+        typescriptreact = { "eslint" },
+        javascriptreact = { "eslint" },
+        markdown = { "" },
       },
     },
   },
