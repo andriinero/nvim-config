@@ -47,3 +47,6 @@ require("lazy").setup({
     },
   },
 })
+
+-- LINE NUMBER COLOR
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#71717a" })
