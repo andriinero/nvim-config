@@ -119,7 +119,7 @@ return {
         { action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = " ", key = "s" },
         { action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x" },
         { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
-        { action = [[lua LazyVim.telescope.config_files()()]], desc = " Config",          icon = " ", key = "c" },
+        { action = [[lua LazyVim.pick.config_files()()]], desc = " Config",          icon = " ", key = "c" },
         { action = "qa",                                                       desc = " Quit",            icon = " ", key = "q" },
       },
           footer = function()
