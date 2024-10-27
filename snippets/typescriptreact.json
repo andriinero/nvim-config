@@ -30,7 +30,7 @@
   "console log": {
     "prefix": "clog",
     "body": [
-      "// FIXME: remove comment",
+      "// FIXME: remove console.log()",
       "console.log(${1});"
     ],
     "description": "Cleaner for loop"
