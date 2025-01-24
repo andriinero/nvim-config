@@ -36,17 +36,6 @@ return {
         },
       },
     },
-    -- {
-    --   "pmizio/typescript-tools.nvim",
-    --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    --   opts = {
-    --     settings = {
-    --       tsserver_plugins = {
-    --         "@styled/typescript-styled-plugin",
-    --       },
-    --     },
-    --   },
-    -- },
     {
       "NvChad/nvim-colorizer.lua",
       opts = {
@@ -57,15 +46,16 @@ return {
     },
     {
       "hrsh7th/nvim-cmp",
+      optional = true,
       dependencies = {
-        { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+        { "roobert/tailwindcss-colorizer-cmp.nvim", opts = {} },
       },
       opts = function(_, opts)
+        -- original LazyVim kind icon formatter
         local format_kinds = opts.formatting.format
-        opts.formatting.format = function(entry, cmp_item)
-          cmp_item.kind = " " .. (cmp_kinds[cmp_item.kind] or "") .. cmp_item.kind -- cmp_item.kind = (cmp_kinds[cmp_item.kind] or "") .. string.sub(cmp_item.kind, 0, 2)
-          format_kinds(entry, cmp_item)
-          return require("tailwindcss-colorizer-cmp").formatter(entry, cmp_item)
+        opts.formatting.format = function(entry, item)
+          format_kinds(entry, item) -- add icons
+          return require("tailwindcss-colorizer-cmp").formatter(entry, item)
         end
       end,
     },

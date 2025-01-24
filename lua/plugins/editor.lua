@@ -1,18 +1,5 @@
 return {
   {
-    "nvim-telescope/telescope-live-grep-args.nvim",
-  },
-  {
-    "antosha417/nvim-lsp-file-operations",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-tree.lua",
-    },
-    config = function()
-      require("lsp-file-operations").setup()
-    end,
-  },
-  {
     "folke/twilight.nvim",
     keys = {
       { "<leader>ct", "<cmd>Twilight<cr>", desc = "Toggle Twilight" },

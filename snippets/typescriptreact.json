@@ -27,6 +27,30 @@
     ],
     "description": "Creates a short component template"
   },
+  "function component template": {
+    "prefix": "fcomp",
+    "body": [
+      "import { cn } from '@/utils/utils';",
+      "",
+      "import type { ComponentWithoutRef } from 'react';",
+      "",
+      "type $1Props = ComponentWithoutRef<''>;",
+      "",
+      "export default function $1({ className, children, ...props }: $1Props) => {",
+      "\treturn <div className={cn('', className)} {...props}>{children}</div>;",
+      "}"
+    ],
+    "description": "Creates function component template"
+  },
+  "short function component template": {
+    "prefix": "fsomp",
+    "body": [
+      "export default function $1() {",
+      "\treturn <div className=\"\"></div>;",
+      "}"
+    ],
+    "description": "Creates a short function component template"
+  },
   "console log": {
     "prefix": "clog",
     "body": [
