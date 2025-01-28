@@ -1,4 +1,15 @@
 {
+  "tRPC proteced procedure": {
+    "prefix": "prot",
+    "body": [
+      "$1: protectedProcedure",
+      "\t.input(z.object({}))",
+      "\t.query(async ({ ctx, input }) => {",
+      "\t\treturn;",
+      "\t}),"
+    ],
+    "description": "Creates protected procedure"
+  },
   "cleaner for loop": {
     "prefix": "forc",
     "body": [

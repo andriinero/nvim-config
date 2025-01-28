@@ -2,11 +2,11 @@
   "component template": {
     "prefix": "comp",
     "body": [
-      "import { cn } from '@/utils/utils';",
+      "import { cn } from '@/lib/utils';",
       "",
-      "import type { ComponentWithoutRef } from 'react';",
+      "import type { ComponentPropsWithoutRef } from 'react';",
       "",
-      "type $1Props = ComponentWithoutRef<''>;",
+      "type $1Props = ComponentPropsWithoutRef<'div'>;",
       "",
       "const $1 = ({ className, children, ...props }: $1Props) => {",
       "\treturn <div className={cn('', className)} {...props}>{children}</div>;",
@@ -30,13 +30,13 @@
   "function component template": {
     "prefix": "fcomp",
     "body": [
-      "import { cn } from '@/utils/utils';",
+      "import { cn } from '@/lib/utils';",
       "",
-      "import type { ComponentWithoutRef } from 'react';",
+      "import type { ComponentPropsWithoutRef } from 'react';",
       "",
-      "type $1Props = ComponentWithoutRef<''>;",
+      "type $1Props = ComponentPropsWithoutRef<'div'>;",
       "",
-      "export default function $1({ className, children, ...props }: $1Props) => {",
+      "export default function $1({ className, children, ...props }: $1Props) {",
       "\treturn <div className={cn('', className)} {...props}>{children}</div>;",
       "}"
     ],
@@ -74,7 +74,7 @@
     "description": "It block"
   },
   "arrow function": {
-    "prefix": "ar",
+    "prefix": "arr",
     "body": [
       "const $1 = () => {",
       "\t",
