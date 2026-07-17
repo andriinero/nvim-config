@@ -1,5 +1,15 @@
 return {
   {
+    "ibhagwan/fzf-lua",
+    opts = {
+      files = {
+        fd_opts = [[--color=never --type f --type l --exclude .git --exclude .jj --exclude 'prisma/migrations']],
+        rg_opts = [[--color=never --files -g '!.git' -g '!.jj' -g '!**/prisma/migrations/**']],
+        find_opts = [[-type f \! -path '*/.git/*' \! -path '*/.jj/*' \! -path '*/prisma/migrations/*']],
+      },
+    },
+  },
+  {
     "folke/twilight.nvim",
     keys = {
       { "<leader>ct", "<cmd>Twilight<cr>", desc = "Toggle Twilight" },
