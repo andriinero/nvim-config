@@ -29,14 +29,18 @@ local cmp_kinds = {
 return {
   {
     "saghen/blink.cmp",
-    opts = {
-      keymap = {
-        ["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" },
-      },
-      appearance = {
-        kind_icons = cmp_kinds,
-      },
-    },
+    opts = function(_, opts)
+      opts.keymap = opts.keymap or {}
+      opts.keymap["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" }
+
+      opts.appearance = opts.appearance or {}
+      opts.appearance.kind_icons = cmp_kinds
+
+      opts.sources = opts.sources or {}
+      opts.sources.default = vim.tbl_filter(function(source)
+        return source ~= "snippets"
+      end, opts.sources.default or {})
+    end,
   },
   {
     "NvChad/nvim-colorizer.lua",
