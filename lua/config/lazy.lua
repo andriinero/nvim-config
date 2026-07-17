@@ -11,11 +11,7 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- import any extras modules here
-    { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.lang.json" },
-    -- { import = "lazyvim.plugins.extras.linting.eslint" },
-    -- { import = "lazyvim.plcgins.extras.formatting.prettier" },
+    -- Extras are managed in lazyvim.json so LazyVim can migrate them.
     -- import/override with your plugins
     { import = "plugins" },
   },
@@ -30,6 +26,7 @@ require("lazy").setup({
   },
   install = { colorscheme = { "tokyonight", "habamax", "palenightfall" } },
   checker = { enabled = false }, -- automatically check for plugin updates
+  rocks = { enabled = false }, -- no configured plugin needs LuaRocks
   performance = {
     rtp = {
       -- disable some rtp plugins

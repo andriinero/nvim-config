@@ -28,24 +28,19 @@ local cmp_kinds = {
 
 return {
   {
-    {
-      "neovim/nvim-lspconfig",
-      opts = {
-        servers = {
-          tailwindcss = {},
-        },
+    "saghen/blink.cmp",
+    opts = {
+      appearance = {
+        kind_icons = cmp_kinds,
       },
     },
-    {
-      "NvChad/nvim-colorizer.lua",
-      opts = {
-        user_default_options = {
-          tailwind = true,
-        },
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    opts = {
+      user_default_options = {
+        tailwind = true,
       },
     },
-    -- {
-    --   "saghen/blink.cmp",
-    -- },
   },
 }

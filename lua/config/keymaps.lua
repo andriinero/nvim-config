@@ -3,12 +3,10 @@
 -- Add any additional keymaps here
 
 -- Removes line swap mappings on alt hold
-vim.keymap.del("n", "<A-j>")
-vim.keymap.del("n", "<A-k>")
-vim.keymap.del("i", "<A-j>")
-vim.keymap.del("i", "<A-k>")
-vim.keymap.del("v", "<A-j>")
-vim.keymap.del("v", "<A-k>")
+for _, mode in ipairs({ "n", "i", "v" }) do
+  pcall(vim.keymap.del, mode, "<A-j>")
+  pcall(vim.keymap.del, mode, "<A-k>")
+end
 
 -- Ctrl Up and Down
 vim.keymap.set("n", "<esc>d", "<C-d>", { remap = true })

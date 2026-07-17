@@ -12,27 +12,20 @@ return {
   },
   {
     "mfussenegger/nvim-lint",
-    opts = {
-      linters_by_ft = {
-        -- ["*"] = { "eslint" },
-        javascript = { "eslint_d" },
-        typescript = { "eslint_d" },
-        typescriptreact = { "eslint_d" },
-        javascriptreact = { "eslint_d" },
-        markdown = { "eslint_d" },
-        -- javascript = { "eslint" },
-        -- typescript = { "eslint" },
-        -- typescriptreact = { "eslint" },
-        -- javascriptreact = { "eslint" },
-        -- markdown = { "eslint" },
-      },
-    },
+    opts = function(_, opts)
+      -- Avoid repeatedly invoking a linter that is not installed.
+      local eslint_d = vim.fn.executable("eslint_d") == 1 and { "eslint_d" } or nil
+      opts.linters_by_ft = vim.tbl_deep_extend("force", opts.linters_by_ft or {}, {
+        javascript = eslint_d,
+        typescript = eslint_d,
+        typescriptreact = eslint_d,
+        javascriptreact = eslint_d,
+      })
+    end,
   },
   {
-    {
-      "kylechui/nvim-surround",
-      version = "*", -- Use for stability; omit to use `main` branch for the latest features
-      event = "VeryLazy",
-    },
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
   },
 }
