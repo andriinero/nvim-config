@@ -28,6 +28,33 @@ local cmp_kinds = {
 
 return {
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        vtsls = {
+          settings = {
+            vtsls = {
+              typescript = {
+                format = {
+                  tabSize = 2,
+                  indentSize = 2,
+                  convertTabsToSpaces = true,
+                },
+              },
+              javascript = {
+                format = {
+                  tabSize = 2,
+                  indentSize = 2,
+                  convertTabsToSpaces = true,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  {
     "saghen/blink.cmp",
     opts = function(_, opts)
       opts.keymap = opts.keymap or {}

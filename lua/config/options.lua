@@ -6,5 +6,11 @@
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 
+-- INDENTATION
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+
 -- CURSOR
 vim.opt.guicursor = "" -- // permanent block cursor
