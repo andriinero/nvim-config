@@ -17,7 +17,13 @@ return {
       { "<leader>gv", "<cmd>DiffviewOpen<cr>", desc = "Diff View" },
       { "<leader>gV", "<cmd>DiffviewFileHistory %<cr>", desc = "Current File History" },
     },
-    opts = {},
+    opts = {
+      file_panel = {
+        win_config = {
+          position = "right",
+        },
+      },
+    },
   },
   {
     "ibhagwan/fzf-lua",
