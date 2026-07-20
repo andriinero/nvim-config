@@ -1,5 +1,25 @@
 return {
   {
+    "sindrets/diffview.nvim",
+    cmd = {
+      "DiffviewOpen",
+      "DiffviewClose",
+      "DiffviewFileHistory",
+      "DiffviewFocusFiles",
+      "DiffviewToggleFiles",
+      "DiffviewRefresh",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    keys = {
+      { "<leader>gv", "<cmd>DiffviewOpen<cr>", desc = "Diff View" },
+      { "<leader>gV", "<cmd>DiffviewFileHistory %<cr>", desc = "Current File History" },
+    },
+    opts = {},
+  },
+  {
     "ibhagwan/fzf-lua",
     opts = {
       files = {
