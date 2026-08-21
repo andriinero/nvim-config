@@ -2,6 +2,10 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- Keep accidental presses of q from recording macros; use <leader>mr instead.
+vim.keymap.set("n", "q", "<Nop>", { desc = "Disable macro recording" })
+vim.keymap.set("n", "<leader>mr", "q", { desc = "Record Macro" })
+
 -- Removes line swap mappings on alt hold
 for _, mode in ipairs({ "n", "i", "v" }) do
   pcall(vim.keymap.del, mode, "<A-j>")
