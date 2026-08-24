@@ -26,6 +26,38 @@ local cmp_kinds = {
   TypeParameter = "  ",
 }
 
+local function python_code_action()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local lnum = vim.api.nvim_win_get_cursor(0)[1] - 1
+  local diagnostics = {}
+
+  for _, diagnostic in ipairs(vim.diagnostic.get(bufnr, { lnum = lnum })) do
+    local lsp_diagnostic = vim.deepcopy(diagnostic.user_data and diagnostic.user_data.lsp)
+    if lsp_diagnostic then
+      -- rope_autoimport understands Ruff/Pyflakes F821 diagnostics. Translate
+      -- Pyright's equivalent so Rope can offer the same import quick fixes.
+      if lsp_diagnostic.code == "reportUndefinedVariable" then
+        lsp_diagnostic.code = "F821"
+        lsp_diagnostic.message = "Undefined name"
+      end
+      diagnostics[#diagnostics + 1] = lsp_diagnostic
+    end
+  end
+
+  vim.lsp.buf.code_action({ context = { diagnostics = diagnostics } })
+end
+
+local function ruff_organize_imports()
+  vim.lsp.buf.code_action({
+    context = { only = { "source.organizeImports" } },
+    filter = function(_, client_id)
+      local client = vim.lsp.get_client_by_id(client_id)
+      return client ~= nil and client.name == "ruff"
+    end,
+    apply = true,
+  })
+end
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -48,6 +80,21 @@ return {
         pylsp = {
           cmd_env = {
             PYTHONPATH = vim.fn.stdpath("data") .. "/pylsp-rope",
+          },
+          keys = {
+            {
+              "<leader>ca",
+              python_code_action,
+              desc = "Python Code Action",
+              mode = { "n", "x" },
+              has = "codeAction",
+            },
+            {
+              "<leader>co",
+              ruff_organize_imports,
+              desc = "Organize Imports (Ruff)",
+              has = "codeAction",
+            },
           },
           settings = {
             pylsp = {
