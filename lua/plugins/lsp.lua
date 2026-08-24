@@ -31,7 +31,61 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        pyright = {},
+        pyright = {
+          settings = {
+            python = {
+              analysis = {
+                autoImportCompletions = true,
+                diagnosticMode = "workspace",
+              },
+            },
+          },
+          on_attach = function(client)
+            -- Rope handles Python renames across package re-exports.
+            client.server_capabilities.renameProvider = false
+          end,
+        },
+        pylsp = {
+          cmd_env = {
+            PYTHONPATH = vim.fn.stdpath("data") .. "/pylsp-rope",
+          },
+          settings = {
+            pylsp = {
+              plugins = {
+                pylsp_rope = { enabled = true, rename = true },
+                jedi_rename = { enabled = false },
+                rope_rename = { enabled = false },
+                autopep8 = { enabled = false },
+                black = { enabled = false },
+                flake8 = { enabled = false },
+                mccabe = { enabled = false },
+                pycodestyle = { enabled = false },
+                pydocstyle = { enabled = false },
+                pyflakes = { enabled = false },
+                pylint = { enabled = false },
+                rope_autoimport = {
+                  enabled = true,
+                  completions = { enabled = false },
+                  code_actions = { enabled = true },
+                },
+                yapf = { enabled = false },
+              },
+            },
+          },
+          on_attach = function(client)
+            -- Keep pylsp as a dedicated Rope rename provider. Pyright and
+            -- Conform remain responsible for every other Python feature.
+            local capabilities = client.server_capabilities
+            capabilities.completionProvider = nil
+            capabilities.definitionProvider = false
+            capabilities.documentFormattingProvider = false
+            capabilities.documentRangeFormattingProvider = false
+            capabilities.documentSymbolProvider = false
+            capabilities.hoverProvider = false
+            capabilities.referencesProvider = false
+            capabilities.signatureHelpProvider = nil
+          end,
+        },
         vtsls = {
           settings = {
             vtsls = {
